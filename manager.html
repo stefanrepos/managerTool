@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&family=Inter:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="panel.css">
+    <title></title>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="column" id="pendientes">
+            <h2 class="texto-destacado">Tareas Pendientes</h2>
+            <ul id="pendientesLista">
+                <!-- Aquí van las tareas pendientes -->
+            </ul>
+        </div>
+        <div class="column" id="enCurso">
+            <h2>Tareas en Curso</h2>
+            <ul id="enCursoLista">
+                <!-- Aquí van las tareas en curso -->
+            </ul>
+        </div>
+        <div class="column" id="terminadas">
+            <h2>Tareas Terminadas</h2>
+            <ul id="terminadasLista">
+                <!-- Aquí van las tareas terminadas -->
+            </ul>
+        </div>
+    </div>
+    <!-- Formulario para agregar tareas -->
+    <div class="formulario">
+        <input type="text" id="titulo" placeholder="Agregar tarea">
+        <input type="text" id="descripcion" placeholder="Agregar descripcion">
+        <input type="text" id="estado" placeholder="Agregar estado">
+        <button class="button" onclick="agregarElemento()">Agregar</button>
+
+    </div>
+
+    <div class="formulario">
+        <input type="text" id="ideliminar" placeholder="Inserte codigo id eliminar">
+
+        <button class="button" onclick="eliminarElemento()">Eliminar</button>
+    </div>        <p class=""  id="resultadoeliminado"></p>
+
+        <hr>
+    <div  class="tablaTareas" id="tablaTareas">
+     </div>
+    <hr>
+    
+    <script src="panelcontrol.js"></script>
+
+</body>
+
+</html>
+

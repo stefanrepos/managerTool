@@ -1,0 +1,277 @@
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat:wght@400;600&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    flex-wrap: wrap;  /* Esto permite que las columnas se envuelvan en pantallas pequeñas */
+    gap: 20px; /* Espacio entre las columnas */
+}
+
+.column {
+    width: 30%;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.column h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+ul {
+    width: 100%;  /* La lista ocupará solo el 25% del ancho */
+    margin: 0 auto;  /* Centrar la lista horizontalmente */
+    padding: 0;
+    list-style: none;  /* Eliminar los puntos de la lista */
+}
+
+
+
+/* Estilo para cada elemento de la lista */
+li {
+    background-color: #4CAF50;
+    color: white;  /* Color de texto */
+    padding: 8px 15px;
+    border-radius: 20px;  /* Bordes redondeados */
+    font-size: 14px;
+    cursor: pointer;  /* Cambio de cursor al pasar por encima */
+    transition: background-color 0.3s ease; /* Efecto suave */
+    margin-bottom: 10px;  /* Separación entre cada ítem */
+    gap: 10px; /* Espacio entre los tags (aunque este no es necesario en li) */
+}
+
+
+.formulario {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+}
+
+#nuevaTarea {
+    padding: 10px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.button {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    height: 40px;
+
+
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+
+.tablaTareas{
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px 0;
+    font-size: 16px;
+    color: white;;
+
+}
+
+.pendiente {
+    background-color: #ff66b2;  /* Color rosado */
+}
+
+.en-curso {
+    background-color: #ff9900;  /* Color naranja */
+}
+
+.terminada {
+    background-color: #4CAF50;  /* Color verde */
+}
+
+/* Contenedor principal que maneja el layout */
+.container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    gap: 20px;
+    flex-wrap: wrap; /* Las columnas se ajustarán al tamaño disponible */
+}
+
+/* Las columnas */
+.column {
+    width: 30%;  /* Las columnas ocupan el 30% en pantallas grandes */
+    padding: 10px;
+    box-sizing: border-box; /* Para incluir el padding dentro del tamaño */
+}
+
+h2 {
+    text-align: center;
+    font-size: 24px;
+}
+
+input, textarea, select {
+    display: block;
+    width: 100%;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+
+
+/* Estilos por estado de la tarea */
+.pendiente {
+    background-color: #ff66b2;
+}
+
+.en-curso {
+    background-color: #ff9900;
+}
+
+.terminada {
+    background-color: #4CAF50;
+}
+
+/* Media Queries para pantallas pequeñas (por ejemplo, móviles) */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;  /* En pantallas pequeñas, las columnas se apilan */
+        align-items: center;     /* Centrar las columnas */
+    }
+
+    .column {
+        width: 100%;  /* Las columnas ocupan el 100% del ancho en pantallas pequeñas */
+        margin-bottom: 20px;  /* Espacio entre columnas */
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    button {
+        font-size: 14px;
+    }
+}
+
+/* Media Queries para pantallas muy pequeñas (móviles pequeños) */
+@media (max-width: 480px) {
+    .container {
+        padding: 10px; /* Reducir padding en pantallas muy pequeñas */
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    button {
+        font-size: 12px;
+        padding: 8px; /* Reducir tamaño de botones */
+    }
+}
+
+
+.tablaTareas {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Cuatro columnas en pantallas grandes */
+    gap: 15px; /* Espacio entre las columnas */
+    padding: 20px;
+}
+
+/* En pantallas más pequeñas (máximo 768px de ancho), cambiar a 2 columnas */
+@media (max-width: 768px) {
+    .tablaTareas {
+        grid-template-columns: repeat(2, 1fr); /* Dos columnas */
+    }
+}
+
+/* En pantallas más pequeñas aún (máximo 480px de ancho), una sola columna */
+@media (max-width: 480px) {
+    .tablaTareas {
+        grid-template-columns: 1fr; /* Una columna */
+    }
+}
+
+/* Estilo de cada tarea en la tabla */
+.tablaTareas .tarea {
+    background-color: #f0f0f0;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-size: 16px;
+    transition: transform 0.2s ease;
+}
+
+/* Efecto al pasar el ratón sobre la tarea */
+.tablaTareas .tarea:hover {
+    transform: translateY(-5px);
+}
+
+
+
+
+.mensajeEliminacion {
+    background-color: #f8d7da;  /* Rosado claro */
+    color: #721c24;  /* Texto rojo oscuro para contraste */
+    font-size: 16px;  /* Tamaño de fuente ajustable */
+    padding: 10px;
+    border-radius: 8px;
+    margin: 20px auto;
+    text-align: center;  /* Centra el texto */
+    width: 90%;  /* Ocupa el 90% del ancho en pantallas grandes */
+    max-width: 600px;  /* Limita el ancho máximo a 600px */
+    box-sizing: border-box;  /* Asegura que el padding no afecte el ancho total */
+    font-family: Arial, sans-serif;  /* Fuente de texto */
+    display: block;  /* Asegura que sea un bloque (para centrar) */
+    transition: opacity 0.3s ease;  /* Agrega una transición suave */
+}
+
+@media (max-width: 600px) {
+    #mensajeEliminacion {
+        font-size: 14px;  /* Reduce el tamaño de fuente en pantallas pequeñas */
+        padding: 8px;
+    }
+}
