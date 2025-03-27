@@ -13,10 +13,32 @@
 </head>
 
 <body>
-      <h2 class="texto-destacado">¡Organiza tu día con mi programador de tareas! Pruébalo ahora.</h2>
-    <div class="container">
-   
 
+    <h1>Prueba la herramienta de tareas pendientes, en curso y terminadas</h1>
+   
+    <!-- Formulario para agregar tareas -->
+    <div class="formulario">
+        <input type="text" id="titulo" placeholder="Agregar tarea">
+        <input type="text" id="descripcion" placeholder="Agregar descripcion">
+
+        <select id="estadoTarea">
+            <option value="pendiente">Pendiente</option>
+            <option value="en curso">En curso</option>
+            <option value="terminada">Terminada</option>
+        </select>
+
+        <button class="button" onclick="agregarElemento()">Agregar</button>
+
+    </div>
+            <!-- Formulario para eliminar tareas -->
+    <div class="formulario">
+        <input type="text" id="ideliminar" placeholder="Inserte codigo id eliminar">
+
+        <button class="button" onclick="eliminarElemento()">Eliminar</button>
+    </div>        
+    <p class=""  id="resultadoeliminado"></p>
+
+    <div class="container">
         <div class="column" id="pendientes">
             <h2 class="texto-destacado">Tareas Pendientes</h2>
             <ul id="pendientesLista">
@@ -36,30 +58,8 @@
             </ul>
         </div>
     </div>
-    <!-- Formulario para agregar tareas -->
-    <div class="formulario">
-        <input type="text" id="titulo" placeholder="Agregar tarea">
-        <input type="text" id="descripcion" placeholder="Agregar descripcion">
-       
-         <select id="estado">
-        <option value="pendiente">Pendiente</option>
-        <option value="en curso">En curso</option>
-        <option value="terminada">Terminada</option>
-        </select>
-        <button class="button" onclick="agregarElemento()">Agregar</button>
 
-    </div>
 
-    <div class="formulario">
-        <input type="text" id="ideliminar" placeholder="Inserte codigo id eliminar">
-
-        <button class="button" onclick="eliminarElemento()">Eliminar</button>
-    </div>        <p class=""  id="resultadoeliminado"></p>
-
-        <hr>
-    <div  class="tablaTareas" id="tablaTareas">
-     </div>
-    <hr>
     
     <script src="panelcontrol.js"></script>
 

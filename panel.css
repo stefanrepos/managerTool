@@ -66,6 +66,7 @@ li {
     justify-content: center;
     margin-top: 20px;
     margin-bottom: 20px;
+    padding: 40px;
 
 }
 
@@ -88,6 +89,7 @@ li {
 
 
 }
+
 
 button:hover {
     background-color: #45a049;

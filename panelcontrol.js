@@ -87,45 +87,63 @@ function eliminarElemento() {
 
 
 }
-
 function mostrarTareasMas() {
-    // Limpiar las listas actuales
-    document.getElementById("pendientesLista").innerHTML = '';
-    document.getElementById("enCursoLista").innerHTML = '';
-    document.getElementById("terminadasLista").innerHTML = '';
-    //document.getElementById("resultadoeliminado").innerHTML = '';
+    // Obtener los elementos de las listas
+    const pendientesLista = document.getElementById("pendientesLista");
+    const enCursoLista = document.getElementById("enCursoLista");
+    const terminadasLista = document.getElementById("terminadasLista");
 
-
+    // Limpiar las listas antes de agregar nuevas tareas
     pendientesLista.innerHTML = '';
     enCursoLista.innerHTML = '';
     terminadasLista.innerHTML = '';
-    ///resultadoeliminado.innerHTML = ``;
-
 
     listaTareas.forEach((tarea) => {
-        // Crear un elemento de lista <li> para cada tarea
+        // Crear un elemento <li> para cada tarea
         const listItem = document.createElement('li');
         listItem.classList.add('tarea'); // Clase base para todas las tareas
 
         // Obtener la clase según el estado de la tarea
         const claseEstado = obtenerClasePorEstado(tarea.estado);
-
-        // Asignar la clase al <li>
         listItem.classList.add(claseEstado);
 
-        // Agregar el título y descripción de la tarea al <li>
-        listItem.innerHTML = `<strong>${tarea.titulo}</strong><p>${tarea.descripcion}</p>`;
+        // Crear el `select` para cambiar el estado
+        const selectEstado = document.createElement('select');
+        selectEstado.innerHTML = `
+            <option value="pendiente" ${tarea.estado === "pendiente" ? "selected" : ""}>Pendiente</option>
+            <option value="en curso" ${tarea.estado === "en curso" ? "selected" : ""}>En curso</option>
+            <option value="terminada" ${tarea.estado === "terminada" ? "selected" : ""}>Terminada</option>
+        `;
+
+        // Evento para actualizar el estado de la tarea
+        selectEstado.addEventListener("change", (event) => {
+            tarea.estado = event.target.value; // Actualizar estado en la lista
+            mostrarTareasMas(); // Volver a renderizar la lista
+        });
+
+        // Agregar contenido al <li>
+        listItem.innerHTML = `
+          <p> ID de la tarea ${tarea.id}</p>
+            <h1>${tarea.titulo}</h1>
+            <p>${tarea.descripcion}</p>
+        `;
+        listItem.appendChild(selectEstado); // Agregar el select al <li>
 
         // Agregar la tarea a la lista correspondiente según el estado
-        if (tarea.estado === "pendiente") {
-            pendientesLista.appendChild(listItem);
-        } else if (tarea.estado === "en curso") {
-            enCursoLista.appendChild(listItem);
-        } else if (tarea.estado === "terminada") {
-            terminadasLista.appendChild(listItem);
+        switch (tarea.estado) {
+            case "pendiente":
+                pendientesLista.appendChild(listItem);
+                break;
+            case "en curso":
+                enCursoLista.appendChild(listItem);
+                break;
+            case "terminada":
+                terminadasLista.appendChild(listItem);
+                break;
         }
     });
-};
+}
+
 
 function obtenerClasePorEstado(estado) {
     switch (estado) {
