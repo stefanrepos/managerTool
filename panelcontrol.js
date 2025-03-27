@@ -67,12 +67,10 @@ function agregarElemento() {
 function eliminarElemento() {
     const ideliminar = parseInt(document.getElementById('ideliminar').value);
     const resultadoeliminado = document.getElementById('resultadoeliminado');
-
     const indice = listaTareas.findIndex(tarea => tarea.id === ideliminar);
 
     if (indice !== -1) {
         // Si la tarea existe, eliminarla
-
         const tareaEliminada = listaTareas.splice(indice, 1)[0]; 
         resultadoeliminado.innerHTML = `Se eliminó la tarea: <strong>${tareaEliminada.titulo}</strong>`;
 
@@ -144,7 +142,7 @@ function mostrarTareasMas() {
     });
 }
 
-
+// En caso de un estado desconocido
 function obtenerClasePorEstado(estado) {
     switch (estado) {
         case "pendiente":
@@ -154,7 +152,7 @@ function obtenerClasePorEstado(estado) {
         case "terminada":
             return 'terminada';
         default:
-            return ''; // En caso de un estado desconocido
+            return ''; 
     }
 };
 
